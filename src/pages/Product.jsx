@@ -1,5 +1,6 @@
 import { Add, Remove } from "@material-ui/icons";
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -118,6 +119,11 @@ const Button = styled.button`
 `;
 
 function Product(props) {
+  const location = useLocation();
+  const id = location.pathname.split("/")[2];
+
+  const [product, setProduct] = useState({});
+
   return (
     <Container>
       <Navbar />
