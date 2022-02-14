@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useState } from "react";
+import { useLocation } from "react-router-dom";
 import styled from "styled-components";
 import Announcement from "../components/Announcement";
 import Footer from "../components/Footer";
@@ -41,6 +42,17 @@ const Option = styled.option`
 `;
 
 function ProductList(props) {
+  const location = useLocation();
+  const cat = location.pathname.split("/")[2];
+
+  const [filters, setFilters] = useState({});
+
+  const handleFilters = (e) => {
+    const value = e.target.value;
+    setFilters({ ...filters, [e.target.name]: value });
+  };
+
+  console.log(filters);
   return (
     <Container>
       <Navbar />
@@ -49,7 +61,7 @@ function ProductList(props) {
       <FilterContainer>
         <Filter>
           <FilterText>Filter Products:</FilterText>
-          <Select>
+          <Select name="color" onChange={handleFilters}>
             <Option disabled value="defaultValue">
               Color
             </Option>
@@ -60,7 +72,7 @@ function ProductList(props) {
             <Option>Yellow</Option>
             <Option>Green</Option>
           </Select>
-          <Select>
+          <Select name="size" onChange={handleFilters}>
             <Option disabled value="defaultValue">
               Size
             </Option>
