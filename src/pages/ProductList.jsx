@@ -50,7 +50,7 @@ function ProductList(props) {
         <Filter>
           <FilterText>Filter Products:</FilterText>
           <Select>
-            <Option disabled selected>
+            <Option disabled value="defaultValue">
               Color
             </Option>
             <Option>White</Option>
@@ -61,7 +61,7 @@ function ProductList(props) {
             <Option>Green</Option>
           </Select>
           <Select>
-            <Option disabled selected>
+            <Option disabled value="defaultValue">
               Size
             </Option>
             <Option>XS</Option>
@@ -74,7 +74,7 @@ function ProductList(props) {
         <Filter>
           <FilterText>Sort Products:</FilterText>
           <Select>
-            <Option selected>Newest</Option>
+            <Option value="defaultValue">Newest</Option>
             <Option>Price (asc)</Option>
             <Option>Price (desc)</Option>
           </Select>
