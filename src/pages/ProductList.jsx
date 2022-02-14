@@ -46,6 +46,7 @@ function ProductList(props) {
   const cat = location.pathname.split("/")[2];
 
   const [filters, setFilters] = useState({});
+  const [sort, setSort] = useState("Newest");
 
   const handleFilters = (e) => {
     const value = e.target.value;
@@ -85,14 +86,15 @@ function ProductList(props) {
         </Filter>
         <Filter>
           <FilterText>Sort Products:</FilterText>
-          <Select>
-            <Option value="defaultValue">Newest</Option>
-            <Option>Price (asc)</Option>
-            <Option>Price (desc)</Option>
+          {/* dont have value so we can write value */}
+          <Select onChange={(e) => setSort(e.target.value)}>
+            <Option value="Newest">Newest</Option>
+            <Option value="asc">Price (asc)</Option>
+            <Option value="desc">Price (desc)</Option>
           </Select>
         </Filter>
       </FilterContainer>
-      <Products />
+      <Products cat={cat} filters={filters} sort={sort} />
       <Newsletter />
       <Footer />
     </Container>
