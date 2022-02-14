@@ -53,7 +53,6 @@ function ProductList(props) {
     setFilters({ ...filters, [e.target.name]: value });
   };
 
-  console.log(filters);
   return (
     <Container>
       <Navbar />
@@ -66,12 +65,12 @@ function ProductList(props) {
             <Option disabled value="defaultValue">
               Color
             </Option>
-            <Option>White</Option>
-            <Option>Black</Option>
-            <Option>Red</Option>
-            <Option>Blue</Option>
-            <Option>Yellow</Option>
-            <Option>Green</Option>
+            <Option>WHITE</Option>
+            <Option>BLACK</Option>
+            <Option>RED</Option>
+            <Option>BLUE</Option>
+            <Option>YELLOW</Option>
+            <Option>GREEN</Option>
           </Select>
           <Select name="size" onChange={handleFilters}>
             <Option disabled value="defaultValue">
